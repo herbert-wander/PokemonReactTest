@@ -1,6 +1,8 @@
 html
 {
     --nav-header-font-family : 'Open Sans', sans-serif;
+    /*font-family: -apple-system, BlinkMacSystemFont, sans-serif;*/
+    
     --nav-header-font-size : 25px;
     --nav-header-logo-margin: 14px 316px 19px 157px;
     --nav-header-logo-width: 159px;
@@ -13,5 +15,29 @@ html
     --nav-header-a-color:#000;
     --nav-header-a-color-selected:#212121;
     --nav-header-box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --presentationBox-font-family: 'Inter', sans-serif;
+    --presentationBox-h1-font-weight: 800;
+    --presentationBox-h1-highlight-color: #FFDA55;
+    --presentationBox-h1-font-size: 54px;
+    --presentationBox-button-font-weight: 700;
+    --presentationBox-font-color:#282828; 
+    --presentationBox-button-background-color: #48D0B0;
+    --presentationBox-button-font-size: 20px;
+    --presentationBox-button-font-color: #FFF;
+    --presentationBox-button-padding:18px 27px 24px 27px;
+    --presentationBox-button-border-radius: 11px;
+    --presentationBox-button-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.18);
+    --presentationBox-margin-right: 30px;
+    --presentationBox-margin-left: 165px;
+    --presentationBox-margin-top: 38px;
+    --presentationBox-p-margin-top:18px;
+    --presentationBox-p-margin-bottom:43px;
+    --presentationBox-width:455px;
+
+    --home-banner-width:793px;
+    --home-banner-height:727.03px;
+
+    --home-margin-top: 67px;
+    --home-margin-bottom: 13px;
 }
