@@ -1,0 +1,17 @@
+html
+{
+    --nav-header-font-family : 'Open Sans', sans-serif;
+    --nav-header-font-size : 25px;
+    --nav-header-logo-margin: 14px 316px 19px 157px;
+    --nav-header-logo-width: 159px;
+    --nav-header-logo-height: 60px;
+    --nav-header-ul-margin-top: 9px;
+    --nav-header-ul-margin-bottom: 6px;
+    --nav-header-a-bold: 700;
+    --nav-header-li-margin-sides:105px;
+    --nav-header-ul-margin-right:311px;
+    --nav-header-a-color:#000;
+    --nav-header-a-color-selected:#212121;
+    --nav-header-box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}

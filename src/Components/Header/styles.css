@@ -1,0 +1,50 @@
+nav
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:var(--nav-header-box-shadow);
+}
+nav img
+{
+    height: var(--nav-header-logo-height);
+    max-height: var(--nav-header-logo-height);
+    width: var(--nav-header-logo-width);
+    max-width: var(--nav-header-logo-width);
+}
+nav img
+{
+    margin: var(--nav-header-logo-margin);
+}
+nav ul
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin-right: var(--nav-header-ul-margin-right);
+}
+nav ul li a
+{
+    font-family: var(--nav-header-font-family);
+    color: var(--nav-header-a-color);
+    font-weight: 400;
+    font-size: var(--nav-header-font-size);
+    text-decoration: none;
+    text-transform: capitalize;
+
+}
+nav ul li a:visited
+{
+    color: var(--nav-header-a-color);
+}
+nav ul li:nth-child(2n)
+{
+    margin-left: var(--nav-header-li-margin-sides);
+    margin-right: var(--nav-header-li-margin-sides);
+}
+.selectNavBar
+{
+    font-weight: var(--nav-header-a-bold);
+}
