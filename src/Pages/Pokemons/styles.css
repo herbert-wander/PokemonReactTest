@@ -1,0 +1,14 @@
+.pokemonsListBox
+{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: var(--pokemonsListBox-gap);
+}
+#pokemonPage
+{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}

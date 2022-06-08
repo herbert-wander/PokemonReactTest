@@ -8,3 +8,12 @@ html
 {
     font-size: 16px;
 }
+.flexLineBreaker
+{
+    width: 100%;
+}
+.containerCenter
+{
+    display: flex;
+    justify-content: center;
+}

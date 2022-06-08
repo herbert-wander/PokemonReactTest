@@ -1,0 +1,58 @@
+.pokemonCard
+{
+    text-transform: capitalize;
+    position: relative;
+    min-width:  var(--pokemonCard-min-width);
+    max-width: var(--pokemonCard-width);
+    max-height: var(--pokemonCard-height);
+    background: #46A487;
+    border-radius: var(--pokemonCard-border-radius);
+    color: var(--pokemonCard-color);
+    font-family: var(--pokemonCard-font-family);
+    font-size: var(--pokemonCard-font-size);
+    padding-left: var(--pokemonCard-padding-left);
+    padding-bottom: var(--pokemonCard-padding-bottom);
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+.pokemonCard h3
+{
+    font-weight: var(--pokemonCard-h3-font-weight);
+    margin-bottom: var(--pokemonCard-h3-margin-bottom);
+    font-size:var(--pokemonCard-h3-font-size) ;
+}
+.pokemonId
+{
+    mix-blend-mode: var(--pokemonId-mix-blend-mode);
+    color: var(--pokemonId-color);
+    opacity: var(--pokemonId-opacity);
+    font-weight: var(--pokemonId-font-weight);
+    margin-top: var(--pokemonId-margin-top);
+    margin-right: var(--pokemonId-margin-right);
+    align-self: flex-end;
+}
+.pokemonType
+{
+    font-family: var(--pokemonType-font-family);
+    font-size: var(--pokemonType-font-size);
+    color: #000;
+    border-radius: var(--pokemonType-border-radius);
+    min-width: var(--pokemonType-min-width);
+    padding: var(--pokemonType-padding);
+    font-weight: var(--pokemonType-span-font-weight);
+    background: var(--pokemonType-background);
+    background-blend-mode: var(--pokemonType-background-blend-mode);
+    opacity: var(--pokemonType-opacity);
+    margin-bottom: var(--pokemonType-margin-bottom);
+}
+.pokemonCard img
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-bottom: calc(var(--pokemonCard-padding-bottom) + var(--pokemonCard-img-margin-bottom));
+    max-height: 95px;
+    max-width: 99px;
+}
