@@ -2,13 +2,16 @@
 {
     display: flex;
     flex-flow: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: stretch;
     gap: var(--pokemonsListBox-gap);
+    margin: var(--pokemonsListBox-margin);
+    align-self: flex-start;
 }
 #pokemonPage
 {
     display: flex;
     flex-flow: column;
     align-items: center;
+    width: 100%;
 }

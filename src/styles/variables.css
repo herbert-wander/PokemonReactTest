@@ -53,7 +53,7 @@ html
     --pokemonCard-font-size:18px;
     --pokemonCard-padding-left:18px;
     --pokemonCard-padding-bottom:15px;
-    --pokemonCard-img-margin-bottom:5px;
+    --pokemonCard-img-margin-bottom:-10px;
 
     --pokemonType-font-family:-apple-system, BlinkMacSystemFont, sans-serif;
     --pokemonType-border-radius:38px;
@@ -73,5 +73,6 @@ html
     --pokemonId-margin-top:10px;
     --pokemonId-margin-right: 15px;
 
-    --pokemonsListBox-gap:10px
+    --pokemonsListBox-gap:10px;
+    --pokemonsListBox-margin:54px 30px 54px 30px;
 }

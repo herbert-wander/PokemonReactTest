@@ -2,13 +2,27 @@ import './styles.css';
 
 export function PokemonSmallCard({ pokemonId, pokemonName, pokemonTypes, image })
 {
+    function printTypes(pokemonIdP, pokemonTypesP)
+    {
+        return pokemonIdP + pokemonTypesP;
+    }
+    function formatId()
+    {
+        var formatedId = pokemonId;
+        for (let index = 0; index < 3 - pokemonId.length; index++) 
+        {
+            formatedId = "0" + formatedId;
+        }
+        return "#" + formatedId;
+    }
     return (
         <div className="pokemonCard">
-            <span className="pokemonId">#001</span>
-            <h3>Bulbassaur</h3>
-            <span className="pokemonType">Planta</span>
-            <span className="pokemonType">Venenoso</span>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg" alt="" />
+            <span className="pokemonId">{formatId()}</span>
+            <h3>{pokemonName}</h3>
+            {
+                pokemonTypes.map((value) => <span key={printTypes(pokemonId, value.type.name)} className="pokemonType">{value.type.name}</span>)
+            }
+            <img src={image} alt="" />
         </div>
     )
 }
