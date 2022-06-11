@@ -7,6 +7,7 @@
     gap: var(--pokemonsListBox-gap);
     margin: var(--pokemonsListBox-margin);
     align-self: flex-start;
+    width: 100%;
 }
 #pokemonPage
 {
@@ -14,4 +15,59 @@
     flex-flow: column;
     align-items: center;
     width: 100%;
+}
+#pokemonPage h1
+{
+    font-family: var(--pokemonPage-h1-font-family);
+    font-style: var(--pokemonPage-h1-font-style);
+    font-weight: var(--pokemonPage-h1-font-weight);
+    font-size: var(--pokemonPage-h1-font-size);
+    line-height: var(--pokemonPage-h1-line-height);
+    text-align: var(--pokemonPage-h1-text-align);
+    letter-spacing: var(--pokemonPage-h1-letter-spacing);
+    margin-top: var(--pokemonPage-h1-margin-top);
+    margin-bottom: var(--pokemonPage-h1-margin-bottom);
+}
+.searchBar
+{
+    background: var(--searchBar-background);
+    border: var(--searchBar-border);
+    box-shadow: var(--searchBar-box-shadow);
+    border-radius:var(--searchBar-border-radius);
+    width: 100%;
+    max-width: var(--searchBar-max-width);
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    
+}
+.searchBar input
+{
+    border-radius:var(--searchBar-border-radius);
+    padding: var(--searchBar-input-padding);
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-family: var(--searchBar-font-family);
+    font-style: var(--searchBar-font-style);
+    font-weight: var(--searchBar-font-weight);
+    font-size: var(--searchBar-font-size);
+    line-height: var(--searchBar-line-height);
+}
+.searchBar img
+{
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    margin-right: var(--searchBar-img-margin-right);
+}
+.selectionMenuBox
+{
+    display: flex;
+    width: 100%;
+    margin: 36px 45px 54px 90px;
+    max-width: var(--searchBar-max-width);
+    justify-content: flex-start;
+    position: relative;
 }

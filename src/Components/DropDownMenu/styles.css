@@ -1,0 +1,95 @@
+.dropDownMenu
+{
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    margin-right: 64px;
+    font-family: var(--dropDownMenu-font-family);
+    font-style: var(--dropDownMenu-font-style);
+    font-weight: var(--dropDownMenu-font-weight);
+    line-height: var(--dropDownMenu-line-height);
+    text-transform: capitalize;
+    max-width: var(--dropDownMenu-max-width);
+}
+.dropDownMenu span
+{
+    display: flex;
+    color: var(--dropDownMenu-font-color);
+    justify-content: center;
+    background: #F2F2F2;
+    position: relative;
+    font-size: var(--dropDownMenu-font-size);
+    box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.dropDownMenu span img
+{
+    position: absolute;
+    right: 0;
+    top: 8px;
+    margin-right: 5px;
+}
+.dropDownMenu fieldset
+{
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    max-width: var(--dropDownMenu-max-width);
+    top:110%;
+    background: #F2F2F2;
+    z-index: 2;
+    border: none;
+    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+    border-radius: 8px;
+    padding: 14px 0 20px 32px;
+}
+.dropDownMenu .boxOptionDropMenu:not(:last-child)
+{
+    margin-bottom: 8px;
+}
+.boxOptionDropMenu input,label
+{
+    cursor: pointer;
+}
+.dropDownMenu .showOptions
+{
+    animation: appearFX 0.2s ease-in 1 forwards;
+}
+.dropDownMenu .removeOptions
+{
+    animation: disappearFX 0.2s ease-in 1 forwards;
+}
+.boxOptionDropMenu label
+{
+    padding-left: 8px;
+}
+.boxOptionDropMenu label
+{}
+
+@keyframes appearFX {
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }
+    100%
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+@keyframes disappearFX {
+    0%{
+        visibility: visible;
+        opacity: 1;
+        
+    }
+    99.99%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        visibility: hidden;
+    }
+}

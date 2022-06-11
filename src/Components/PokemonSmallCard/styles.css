@@ -5,7 +5,7 @@
     min-width:  var(--pokemonCard-min-width);
     max-width: var(--pokemonCard-width);
     max-height: var(--pokemonCard-height);
-    min-height: 135px;
+    min-height: 160px;
     background: #46A487;
     border-radius: var(--pokemonCard-border-radius);
     color: var(--pokemonCard-color);

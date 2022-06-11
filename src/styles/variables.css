@@ -74,5 +74,35 @@ html
     --pokemonId-margin-right: 15px;
 
     --pokemonsListBox-gap:10px;
-    --pokemonsListBox-margin:54px 30px 54px 30px;
+    --pokemonsListBox-margin:54px 0px 54px 0px;
+
+    --pokemonPage-h1-font-family: 'Inter', sans-serif;
+    --pokemonPage-h1-font-style: normal;
+    --pokemonPage-h1-font-weight: 400;
+    --pokemonPage-h1-font-size: 35px;
+    --pokemonPage-h1-line-height: 42px;
+    --pokemonPage-h1-text-align: center;
+    --pokemonPage-h1-letter-spacing: 3px;
+    --pokemonPage-h1-margin-top:73px;
+    --pokemonPage-h1-margin-bottom:33px;
+
+    --searchBar-background: #FFFFFF;
+    --searchBar-border: 1px solid #F1F1F1;
+    --searchBar-box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
+    --searchBar-border-radius: 40px;
+    --searchBar-max-width: 1088px;
+    --searchBar-input-padding: 15px 55px 15px 31px;
+    --searchBar-font-family: 'Open Sans';
+    --searchBar-font-style: normal;
+    --searchBar-font-weight: 400;
+    --searchBar-font-size: 16px;
+    --searchBar-line-height: 22px;
+    --searchBar-img-margin-right:25px;
+
+    --dropDownMenu-font-family:  'Open Sans', sans-serif;;
+    --dropDownMenu-font-size: 16px;
+    --dropDownMenu-font-weight: 500;
+    --dropDownMenu-text-align: center;
+    --dropDownMenu-font-color: #171414;
+    --dropDownMenu-max-width:135px;
 }
