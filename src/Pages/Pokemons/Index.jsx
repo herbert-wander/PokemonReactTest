@@ -96,23 +96,12 @@ export function Pokemons()
             })
             .catch(error => console.log("Error = " + error));
     }
-    function checkForImage(pokeSprites) 
-    {
-        if (pokeSprites.other.dream_world.front_default == null) 
-        {
-            return pokeSprites.other["official-artwork"].front_default;
-        }
-        else
-        {
-            return pokeSprites.other.dream_world.front_default;
-        }
-    }
 
     return (
         <section id="page">
             <Header />
             <section id="pokemonPage">
-                <h1>Mais de 900 Pokemons para você escolher o seu favorito</h1>
+                <h1 className="pokePageTitle">Mais de 900 Pokemons para você escolher o seu favorito</h1>
                 <div className="searchBar">
                     <input type="text" placeholder="Pesquisar pokemon" onChange={e => searchHandle(e.target.value)} />
                     <img src="./src/images/lupa.svg" alt="Pesquisar" />
@@ -125,10 +114,10 @@ export function Pokemons()
                 <div className="pokemonsListBox">
                     {
                         //pokemonsList.map((value, index) => <PokemonSmallCard key={index} pokemonId={index} pokemonName={value.name} pokemonTypes={value.types} image={checkForImage(value.sprites)} />)
-                        Object.entries(pokemonsList).map(([key, value]) => <PokemonSmallCard key={key} pokemonId={key} pokemonName={value.name} pokemonTypes={value.types} image={checkForImage(value.sprites)} />)
+                        Object.entries(pokemonsList).map(([key, value]) => <PokemonSmallCard key={key} pokemonId={key} pokemonName={value.name} pokemonTypes={value.types} image={value.sprites.other["official-artwork"].front_default} />)
                     }
                 </div>
-
+                <PokemonDetailsCard />
             </section>
         </section>
     )

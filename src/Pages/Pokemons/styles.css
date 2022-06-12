@@ -16,7 +16,7 @@
     align-items: center;
     width: 100%;
 }
-#pokemonPage h1
+.pokePageTitle
 {
     font-family: var(--pokemonPage-h1-font-family);
     font-style: var(--pokemonPage-h1-font-style);

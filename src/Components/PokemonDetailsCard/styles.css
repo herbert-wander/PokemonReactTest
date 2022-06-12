@@ -1,0 +1,186 @@
+.modalPokeDetails
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+}
+.pokeDetailsCard
+{
+    display: flex;
+    flex-flow: column;
+}
+.closeModal
+{
+    font-family: 'Fredoka One', cursive;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 25px;
+    margin-bottom: 18px;
+    align-self: flex-end;
+    color: #000;
+}
+.pokeDetailsBox
+{
+    display: flex;
+    border-radius: 8px;
+    background: #FFF;
+    max-width: 800px;
+    max-height: 420px;
+    justify-content: flex-start;
+}
+.pokeProfileBox
+{
+    display: flex;
+    border-radius: 8px;
+    flex-flow: column;
+    max-width: 365px;
+    background: #FB6C6C;
+}
+.pokeProfileBox img
+{
+    max-width: 345px;
+    max-height: 370px;
+}
+.pokeDetailsTypesBox
+{}
+.pokeInfoBox
+{
+    padding: 26px 23px 36px 48px;
+}
+.pokeInfoTitle
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:9px;
+}
+.pokeInfoTitle h1
+{
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #444444;
+    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+.pokeInfoTitle span
+{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+.pokeInfoDesc
+{
+    font-family: var(--pokemonType-font-family);
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 13px;
+}
+.pokeBaseInfosBox
+{
+    font-family: var(--pokemonCard-font-family);
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    margin-bottom: 32px;
+}
+.pokeBaseinfoBox
+{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    align-items: flex-start;
+    text-transform: capitalize;
+}
+.pokeBaseinfoBox.mainPowerBox
+{
+    flex-flow: column;
+    align-items: center;
+}
+.pokeBaseinfoDetail
+{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-transform: capitalize;
+}
+.pokeBaseinfoBox img
+{
+    margin-top: 3px;
+    margin-right: 8px;
+}
+.pokeBaseInfosBox .pokeBaseinfoBox:nth-child(2)
+{
+    border-left: 2px #E0E0E0 solid;
+    border-right: 2px #E0E0E0 solid;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-right: 24px;
+    margin-left: 24px;
+}
+.pokeBaseInfoBox div img
+{}
+.pokeBaseInfoTitle
+{
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #212121;
+}
+.pokeInfoSmallDetail
+{
+    font-size: 14px;
+    color: #767676;
+}
+.pokeStatsInfoBox
+{}
+.pokeStatInfoBox
+{
+    font-size: 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.pokeStatInfoBox:not(:last-child)
+{
+    margin-bottom: 14px;
+}
+.pokeStatInfoLabel
+{
+    font-family: var(--pokemonType-font-family);
+    display: flex;
+    font-weight: 500;
+    flex: 1;
+    color: #444444;
+}
+.pokeStatInfoValue
+{
+    color: #303943;
+    font-family: var(--pokemonCard-font-family);
+}
+.pokeStatInfoBar
+{
+    align-self: center;
+    position: relative;
+    margin-left: 13px;
+    height: 5px;
+    width: 200px;
+    margin-right: 50px;
+    background: #e4e4e4;
+}
+.pokeStatInfoBar::after
+{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 45%;
+    background: #6ff5ff;
+}
