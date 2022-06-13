@@ -13,7 +13,7 @@ export function Home()
                     <p>Você pode saber o tipo de Pokémon, seus pontos fortes, fracos e habilidades.</p>
                     <button>Veja os pokemons</button>
                 </div>
-                <img src="./src/images/banner.svg" alt="Pokemon Banner" className="banner" />
+                <img src="/src/images/banner.svg" alt="Pokemon Banner" className="banner" />
             </section>
         </section>
     )

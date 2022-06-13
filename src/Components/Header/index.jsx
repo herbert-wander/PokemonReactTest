@@ -3,7 +3,7 @@ export function Header({ setPageNavigation })
 {
     return (
         <nav>
-            <img src="./src/images/pokemonLogo.svg" alt="Pokemon Logo" />
+            <img src="/src/images/pokemonLogo.svg" alt="Pokemon Logo" />
             <ul>
                 <li><a href="#" className="selectNavBar" onClick={() => setPageNavigation(1)}>home</a></li>
                 <li><a href="#" onClick={() => setPageNavigation(2)}>pokemons</a></li>

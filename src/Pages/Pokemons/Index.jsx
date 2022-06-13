@@ -119,7 +119,7 @@ export function Pokemons()
                 <h1 className="pokePageTitle">Mais de 900 Pokemons para você escolher o seu favorito</h1>
                 <div className="searchBar">
                     <input type="text" placeholder="Pesquisar pokemon" onChange={e => searchHandle(e.target.value)} />
-                    <img src="./src/images/lupa.svg" alt="Pesquisar" />
+                    <img src="/src/images/lupa.svg" alt="Pesquisar" />
                 </div>
                 <div className="selectionMenuBox">
                     <DropDownMenu key="typePokemonMenu" menuLabel="Tipo" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} />
