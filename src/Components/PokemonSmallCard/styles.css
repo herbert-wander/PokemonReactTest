@@ -1,6 +1,7 @@
 .pokemonCard
 {
     text-transform: capitalize;
+    cursor: pointer;
     position: relative;
     min-width:  var(--pokemonCard-min-width);
     max-width: var(--pokemonCard-width);

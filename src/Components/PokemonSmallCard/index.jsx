@@ -1,6 +1,6 @@
 import './styles.css';
 
-export function PokemonSmallCard({ pokemonId, pokemonName, pokemonTypes, image })
+export function PokemonSmallCard({ pokemonId, pokemonName, pokemonTypes, image, expandDetails })
 {
     function printTypes(pokemonIdP, pokemonTypesP)
     {
@@ -16,7 +16,7 @@ export function PokemonSmallCard({ pokemonId, pokemonName, pokemonTypes, image }
         return "#" + formatedId;
     }
     return (
-        <div className="pokemonCard">
+        <div className="pokemonCard" onClick={() => expandDetails(pokemonId)}>
             <span className="pokemonId">{formatId()}</span>
             <h3>{pokemonName}</h3>
             {

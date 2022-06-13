@@ -7,7 +7,6 @@ export function Home()
 {
     return (
         <section id="page">
-            <Header />
             <section id="homePage">
                 <div className="presentationBox">
                     <h1>Qual pokemon<br /><span className="yellowHighLight">você escolheria?</span></h1>

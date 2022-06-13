@@ -1,65 +1,92 @@
 import './styles.css';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-export function PokemonDetailsCard()
+export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
 {
+    const [pokeDesc, setPokeDesc] = useState();
+    useEffect(() =>
+    {
+        getPokeDescription();
+    }, []);
+    function formatId(pokeId)
+    {
+        var formatedId = pokeId;
+        for (let index = 0; index < 3 - pokeId.length; index++) 
+        {
+            formatedId = "0" + formatedId;
+        }
+        return "#" + formatedId;
+    }
+    async function getPokeDescription()
+    {
+        await fetch(pokeData.species.url)
+            .then(data => data.json())
+            .then(data => 
+            {
+                setPokeDesc(data.flavor_text_entries[0].flavor_text.replace("\n", " ").replace("\f", " ") + data.flavor_text_entries[3].flavor_text.replace("\n", " ").replace("\f", " "));
+            })
+            .catch(error => console.log("Error = " + error));
+    }
+
     return (
         <div className="modalPokeDetails">
             <div className="pokeDetailsCard">
-                <div className="closeModal"><span>X</span></div>
+                <div className="closeModal" onClick={() => setShowPokeDetails()} ><span>X</span></div>
                 <div className="pokeDetailsBox">
                     <div className="pokeProfileBox">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="" />
+                        <img src={pokeData.sprites.other["official-artwork"].front_default} alt="" />
                         <div className="pokeDetailsTypesBox">
-                            <span>Fogo</span>
+                            {
+                                pokeData.types.map((value) => <div className="pokeDetailsType" key={"pokeDetailType" + pokeData.id + value.type.name}>{value.type.name}</div>)
+                            }
                         </div>
                     </div>
                     <div className="pokeInfoBox">
                         <div className="pokeInfoTitle">
-                            <h1>Charizard</h1>
-                            <span>#005</span>
+                            <h1>{pokeData.name}</h1>
+                            <span>{formatId(pokeData.id.toString())}</span>
                         </div>
-                        <p className="pokeInfoDesc">
-                            Charizard é um Pokémon bípede dracônico . É principalmente laranja com uma parte inferior creme do peito até a ponta da cauda.
-                        </p>
+                        <p className="pokeInfoDesc">{pokeDesc}</p>
                         <div className="pokeBaseInfosBox">
                             <div className="pokeBaseinfoBox">
                                 <img src="./src/images/peso.svg" alt="" />
                                 <div className="pokeBaseinfoDetail">
-                                    <span className="pokeBaseInfoTitle">90.5 kg</span>
+                                    <span className="pokeBaseInfoTitle">{(pokeData.weight * 100) / 1000} kg</span>
                                     <span className="pokeInfoSmallDetail">peso</span>
                                 </div>
                             </div>
                             <div className="pokeBaseinfoBox">
                                 <img src="./src/images/regua.svg" alt="" />
                                 <div className="pokeBaseinfoDetail">
-                                    <span className="pokeBaseInfoTitle">1.7 m</span>
+                                    <span className="pokeBaseInfoTitle">{(pokeData.height * 10) / 100} m</span>
                                     <span className="pokeInfoSmallDetail">altura</span>
                                 </div>
                             </div>
                             <div className="pokeBaseinfoBox mainPowerBox">
-                                <span className="pokeBaseInfoTitle">lança Chamas</span>
+                                <span className="pokeBaseInfoTitle">{pokeData.abilities[0].ability.name}</span>
                                 <span className="pokeInfoSmallDetail">Poder Principal</span>
                             </div>
                         </div>
                         <div className="pokeStatsInfoBox">
                             <div className="pokeStatInfoBox">
                                 <span className="pokeStatInfoLabel">Ataque</span>
-                                <span className="pokeStatInfoValue">84</span>
+                                <span className="pokeStatInfoValue">{pokeData.stats[1].base_stat}</span>
                                 <span className="pokeStatInfoBar"></span>
                             </div>
                             <div className="pokeStatInfoBox">
                                 <span className="pokeStatInfoLabel">Defesa</span>
-                                <span className="pokeStatInfoValue">78</span>
+                                <span className="pokeStatInfoValue">{pokeData.stats[2].base_stat}</span>
                                 <span className="pokeStatInfoBar"></span>
                             </div>
                             <div className="pokeStatInfoBox">
                                 <span className="pokeStatInfoLabel">Vl. Ataque</span>
-                                <span className="pokeStatInfoValue">109</span>
+                                <span className="pokeStatInfoValue">{pokeData.stats[5].base_stat}</span>
                                 <span className="pokeStatInfoBar"></span>
                             </div>
                             <div className="pokeStatInfoBox">
                                 <span className="pokeStatInfoLabel">Total</span>
-                                <span className="pokeStatInfoValue">271</span>
+                                <span className="pokeStatInfoValue">{pokeData.stats[1].base_stat + pokeData.stats[2].base_stat + pokeData.stats[5].base_stat}</span>
                                 <span className="pokeStatInfoBar"></span>
                             </div>
                         </div>

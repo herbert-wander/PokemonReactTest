@@ -5,14 +5,18 @@ import { PokemonSmallCard } from '../../Components/PokemonSmallCard';
 import { PokemonDetailsCard } from '../../Components/PokemonDetailsCard';
 import { DropDownMenu } from "../../Components/DropDownMenu";
 import { useEffect } from 'react';
+import { useRef } from 'react'
 
 export function Pokemons()
 {
     const [pokemonsList, setPokemonsList] = useState({});
     const [defaultPokeList, setDefaultPokeList] = useState({});
     const [pokemonsTypes, setPokemonsTypes] = useState([]);
+    const [showPokeDetails, setShowPokeDetails] = useState(false);
     const [pokemontDataPos, setPokemontDataPos] = useState(1);
     const [allPokemonList, setAllPokemonList] = useState(1);
+    const [featuredPokemon, setFeaturedPokemon] = useState();
+    const lastSearchPromise = useRef();
 
     useEffect(() =>
     {
@@ -70,7 +74,7 @@ export function Pokemons()
         var searchResult = {};
         if (searchTerm != null && searchTerm != "") 
         {
-            await Promise.all(allPokemonList.map(async (value) =>
+            var verifyPromise = Promise.all(allPokemonList.map(async (value) =>
             {
                 if (value.name.includes(searchTerm.toLowerCase())) 
                 {
@@ -78,7 +82,13 @@ export function Pokemons()
                     searchResult[pokeData.id] = pokeData;
                 }
             }));
-            setPokemonsList(searchResult);
+            lastSearchPromise.current = verifyPromise;
+            const response = await verifyPromise;
+            if (lastSearchPromise.current == verifyPromise)
+            {
+                setPokemonsList(searchResult);
+            }
+
         }
         else
         {
@@ -96,10 +106,15 @@ export function Pokemons()
             })
             .catch(error => console.log("Error = " + error));
     }
+    function expandDetails(pokeId)
+    {
+        setFeaturedPokemon(pokemonsList[pokeId]);
+        setShowPokeDetails(true);
+
+    }
 
     return (
         <section id="page">
-            <Header />
             <section id="pokemonPage">
                 <h1 className="pokePageTitle">Mais de 900 Pokemons para você escolher o seu favorito</h1>
                 <div className="searchBar">
@@ -114,10 +129,12 @@ export function Pokemons()
                 <div className="pokemonsListBox">
                     {
                         //pokemonsList.map((value, index) => <PokemonSmallCard key={index} pokemonId={index} pokemonName={value.name} pokemonTypes={value.types} image={checkForImage(value.sprites)} />)
-                        Object.entries(pokemonsList).map(([key, value]) => <PokemonSmallCard key={key} pokemonId={key} pokemonName={value.name} pokemonTypes={value.types} image={value.sprites.other["official-artwork"].front_default} />)
+                        Object.entries(pokemonsList).map(([key, value]) => <PokemonSmallCard key={key} pokemonId={key} pokemonName={value.name} pokemonTypes={value.types} image={value.sprites.other["official-artwork"].front_default} expandDetails={expandDetails} />)
                     }
                 </div>
-                <PokemonDetailsCard />
+                {
+                    showPokeDetails ? <PokemonDetailsCard pokeData={featuredPokemon} setShowPokeDetails={setShowPokeDetails} /> : ""
+                }
             </section>
         </section>
     )

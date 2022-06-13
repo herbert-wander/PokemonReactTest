@@ -1,11 +1,42 @@
 import { Home } from './Pages/Home';
 import { Pokemons } from "./Pages/Pokemons/Index";
+import { Header } from "./Components/Header";
+import { useRef, useState } from 'react';
+import { useEffect } from 'react';
 import "./styles/global.css"
 import "./styles/variables.css"
 
 export function App()
 {
+    const [pageState, setPageState] = useState(1);
+
+    function navigationHandle()
+    {
+        //Id 1 = Home || Id 2 = Pokemon Page
+        if (pageState == 1) 
+        {
+            return <Home />;
+        }
+        else if (pageState == 2)
+        {
+            return <Pokemons />;
+        }
+        else
+        {
+            return <Home />;
+        }
+    }
+    function setPageNavigation(pageId) 
+    {
+        setPageState(pageId);
+    }
     return (
-        <Pokemons />
+        <div>
+            <Header setPageNavigation={setPageNavigation} />
+            {
+                navigationHandle()
+            }
+        </div>
+
     )
 }
