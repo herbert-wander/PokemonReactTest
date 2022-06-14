@@ -1,5 +1,6 @@
 import './styles.css';
 import { useState } from 'react';
+import dropDownArrowSVG from '/src/images/dropDownArrow.svg'
 
 export function DropDownMenu({ options, menuLabel })
 {
@@ -37,7 +38,7 @@ export function DropDownMenu({ options, menuLabel })
 
     return (
         <div className="dropDownMenu">
-            <span onClick={handleOptBoxView}>{menuLabel}<img src="/src/images/dropDownArrow.svg" alt="" /></span>
+            <span onClick={handleOptBoxView}>{menuLabel}<img src={dropDownArrowSVG} alt="" /></span>
             <fieldset className={handleCssClassSwitch("", "showOptions", "removeOptions")}>
                 {
                     options.length <= 1 ? <span>{options[0]}</span> : options.map(value =>

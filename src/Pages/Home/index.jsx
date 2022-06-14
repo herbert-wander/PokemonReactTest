@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react'
 import './styles.css';
+import bannerSVG from '/src/images/banner.svg'
 import { Header } from '../../Components/Header'
 
 export function Home()
@@ -13,7 +14,7 @@ export function Home()
                     <p>Você pode saber o tipo de Pokémon, seus pontos fortes, fracos e habilidades.</p>
                     <button>Veja os pokemons</button>
                 </div>
-                <img src="/src/images/banner.svg" alt="Pokemon Banner" className="banner" />
+                <img src={bannerSVG} alt="Pokemon Banner" className="banner" />
             </section>
         </section>
     )

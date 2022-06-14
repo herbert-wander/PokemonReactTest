@@ -5,6 +5,7 @@ import { PokemonSmallCard } from '../../Components/PokemonSmallCard';
 import { PokemonDetailsCard } from '../../Components/PokemonDetailsCard';
 import { DropDownMenu } from "../../Components/DropDownMenu";
 import { useEffect } from 'react';
+import lupaSVG from '/src/images/lupa.svg'
 import { useRef } from 'react'
 
 export function Pokemons()
@@ -24,7 +25,7 @@ export function Pokemons()
         {
             for (let index = pokemontDataPos; index < pokemontDataPos + 15; index++) 
             {
-                var url = "http://pokeapi.co/api/v2/pokemon/" + index;
+                var url = "https://pokeapi.co/api/v2/pokemon/" + index;
                 await fetch(url)
                     .then(data => data.json())
                     .then(data => 
@@ -78,6 +79,7 @@ export function Pokemons()
             {
                 if (value.name.includes(searchTerm.toLowerCase())) 
                 {
+                    console.log(value.url);
                     var pokeData = await getData(value.url);
                     searchResult[pokeData.id] = pokeData;
                 }
@@ -119,7 +121,7 @@ export function Pokemons()
                 <h1 className="pokePageTitle">Mais de 900 Pokemons para você escolher o seu favorito</h1>
                 <div className="searchBar">
                     <input type="text" placeholder="Pesquisar pokemon" onChange={e => searchHandle(e.target.value)} />
-                    <img src="/src/images/lupa.svg" alt="Pesquisar" />
+                    <img src={lupaSVG} alt="Pesquisar" />
                 </div>
                 <div className="selectionMenuBox">
                     <DropDownMenu key="typePokemonMenu" menuLabel="Tipo" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} />
@@ -128,7 +130,6 @@ export function Pokemons()
                 </div>
                 <div className="pokemonsListBox">
                     {
-                        //pokemonsList.map((value, index) => <PokemonSmallCard key={index} pokemonId={index} pokemonName={value.name} pokemonTypes={value.types} image={checkForImage(value.sprites)} />)
                         Object.entries(pokemonsList).map(([key, value]) => <PokemonSmallCard key={key} pokemonId={key} pokemonName={value.name} pokemonTypes={value.types} image={value.sprites.other["official-artwork"].front_default} expandDetails={expandDetails} />)
                     }
                 </div>
