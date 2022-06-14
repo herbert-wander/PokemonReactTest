@@ -44,7 +44,9 @@ nav ul li:nth-child(2n)
     margin-left: var(--nav-header-li-margin-sides);
     margin-right: var(--nav-header-li-margin-sides);
 }
-.selectNavBar
+.selectedNavBar
 {
     font-weight: var(--nav-header-a-bold);
+    padding-bottom: 12px;
+    border-bottom: 3px solid #212121;
 }

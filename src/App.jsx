@@ -15,7 +15,7 @@ export function App()
         //Id 1 = Home || Id 2 = Pokemon Page
         if (pageState == 1) 
         {
-            return <Home />;
+            return <Home setPageNavigation={setPageNavigation} />;
         }
         else if (pageState == 2)
         {
@@ -23,7 +23,7 @@ export function App()
         }
         else
         {
-            return <Home />;
+            return <Home setPageNavigation={setPageNavigation} />;
         }
     }
     function setPageNavigation(pageId) 
