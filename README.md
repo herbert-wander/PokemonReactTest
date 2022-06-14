@@ -12,7 +12,7 @@
 - [Credits](#diamond_shape_with_a_dot_inside-Credits)
 _________________
 ### :diamond_shape_with_a_dot_inside: Annonucements
-:warning: **Online Version is now up [HERE](https://astounding-puffpuff-8f7995.netlify.app/)**<br>
+:warning: **Online Version is now up <a href="https://astounding-puffpuff-8f7995.netlify.app/" target="_blank">HERE</a>**<br>
 
 _________________
 ### :diamond_shape_with_a_dot_inside: About
