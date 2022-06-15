@@ -1,6 +1,7 @@
 import './styles.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { PokeStatInfoBox } from "../PokeStatInfoBox";
 
 export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
 {
@@ -29,16 +30,21 @@ export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
             .catch(error => console.log("Error = " + error));
     }
 
+    function getColorClass(color) 
+    {
+        return color.charAt(0).toUpperCase() + color.slice(1);
+    }
+
     return (
         <div className="modalPokeDetails">
             <div className="pokeDetailsCard">
                 <div className="closeModal" onClick={() => setShowPokeDetails()} ><span>X</span></div>
                 <div className="pokeDetailsBox">
-                    <div className="pokeProfileBox">
+                    <div className={"pokeProfileBox" + " pokeColorBack" + getColorClass(pokeData.types[0].type.name)}>
                         <img src={pokeData.sprites.other["official-artwork"].front_default} alt="" />
                         <div className="pokeDetailsTypesBox">
                             {
-                                pokeData.types.map((value) => <div className="pokeDetailsType" key={"pokeDetailType" + pokeData.id + value.type.name}>{value.type.name}</div>)
+                                pokeData.types.map((value) => <div className="pokemonType pokeDetailsType" key={"pokeDetailType" + pokeData.id + value.type.name}>{value.type.name}</div>)
                             }
                         </div>
                     </div>
@@ -69,26 +75,10 @@ export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
                             </div>
                         </div>
                         <div className="pokeStatsInfoBox">
-                            <div className="pokeStatInfoBox">
-                                <span className="pokeStatInfoLabel">Ataque</span>
-                                <span className="pokeStatInfoValue">{pokeData.stats[1].base_stat}</span>
-                                <span className="pokeStatInfoBar"></span>
-                            </div>
-                            <div className="pokeStatInfoBox">
-                                <span className="pokeStatInfoLabel">Defesa</span>
-                                <span className="pokeStatInfoValue">{pokeData.stats[2].base_stat}</span>
-                                <span className="pokeStatInfoBar"></span>
-                            </div>
-                            <div className="pokeStatInfoBox">
-                                <span className="pokeStatInfoLabel">Vl. Ataque</span>
-                                <span className="pokeStatInfoValue">{pokeData.stats[5].base_stat}</span>
-                                <span className="pokeStatInfoBar"></span>
-                            </div>
-                            <div className="pokeStatInfoBox">
-                                <span className="pokeStatInfoLabel">Total</span>
-                                <span className="pokeStatInfoValue">{pokeData.stats[1].base_stat + pokeData.stats[2].base_stat + pokeData.stats[5].base_stat}</span>
-                                <span className="pokeStatInfoBar"></span>
-                            </div>
+                            <PokeStatInfoBox key={"LabelAtaque"} label="Ataque" statValue={pokeData.stats[1].base_stat} statMax="100" />
+                            <PokeStatInfoBox key={"LabelDefesa"} label="Defesa" statValue={pokeData.stats[2].base_stat} statMax="93" />
+                            <PokeStatInfoBox key={"LabelVlAtaque"} label="Vl. Ataque" statValue={pokeData.stats[5].base_stat} statMax="88" />
+                            <PokeStatInfoBox key={"LabelStatsTotal"} label="Total" statValue={pokeData.stats[1].base_stat + pokeData.stats[2].base_stat + pokeData.stats[5].base_stat} statMax="261" />
                         </div>
                     </div>
                 </div>

@@ -67,8 +67,8 @@ html
     --pokemonType-margin-bottom:6px;
 
     --pokemonId-mix-blend-mode: normal;
-    --pokemonId-color: #FFF;
-    --pokemonId-opacity: 0.5;
+    --pokemonId-color: rgb(255, 255, 255);
+    --pokemonId-opacity: 0.6;
     --pokemonId-font-weight:500;
     --pokemonId-margin-top:10px;
     --pokemonId-margin-right: 15px;
@@ -105,4 +105,26 @@ html
     --dropDownMenu-text-align: center;
     --dropDownMenu-font-color: #171414;
     --dropDownMenu-max-width:135px;
+
+    --pokeColor-Normal:rgb(155, 188, 207);
+    --pokeColor-Fighting:rgb(226, 90, 36);
+    --pokeColor-Flying:rgb(88, 160, 255);
+    --pokeColor-Poison:rgb(0, 255, 34);
+    --pokeColor-Ground:rgb(211, 156, 53);
+    --pokeColor-Rock:rgb(100, 100, 100);
+    --pokeColor-Bug:rgb(170, 255, 59);
+    --pokeColor-Ghost:rgb(138, 180, 159);
+    --pokeColor-Steel:rgb(125, 234, 241);
+    --pokeColor-Fire:rgb(202, 50, 50);
+    --pokeColor-Water:rgb(22, 26, 255);
+    --pokeColor-Grass:rgb(64, 129, 11);
+    --pokeColor-Electric:rgb(241, 207, 12);
+    --pokeColor-Psychic:rgb(227, 133, 255);
+    --pokeColor-Ice:rgb(0, 216, 245);
+    --pokeColor-Dragon:rgb(172, 112, 0);
+    --pokeColor-Dark:rgb(0, 0, 0);
+    --pokeColor-Fairy:rgb(255, 70, 193);
+    --pokeColor-Unknown:rgb(70, 0, 77);
+    --pokeColor-Shadow:rgb(35, 31, 37);
+
 }

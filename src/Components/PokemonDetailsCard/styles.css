@@ -41,7 +41,6 @@
     border-radius: 8px;
     flex-flow: column;
     max-width: 365px;
-    background: #FB6C6C;
 }
 .pokeProfileBox img
 {
@@ -60,14 +59,9 @@
 }
 .pokeDetailsType
 {
-    background: rgba(255, 255, 255, 0.4);;
     margin-left: 5px;
     padding: 8px 20px;
-    border-radius: 15px;
     text-transform: capitalize;
-    font-family: var(--pokemonType-font-family);
-    text-align: center;
-    color: #FFF;
 }
 .pokeInfoBox
 {
@@ -158,50 +152,4 @@
 {
     font-size: 14px;
     color: #767676;
-}
-.pokeStatsInfoBox
-{}
-.pokeStatInfoBox
-{
-    font-size: 16px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-}
-.pokeStatInfoBox:not(:last-child)
-{
-    margin-bottom: 14px;
-}
-.pokeStatInfoLabel
-{
-    font-family: var(--pokemonType-font-family);
-    display: flex;
-    font-weight: 500;
-    flex: 1;
-    color: #444444;
-}
-.pokeStatInfoValue
-{
-    color: #303943;
-    font-family: var(--pokemonCard-font-family);
-}
-.pokeStatInfoBar
-{
-    align-self: center;
-    position: relative;
-    margin-left: 13px;
-    height: 5px;
-    width: 200px;
-    margin-right: 50px;
-    background: #e4e4e4;
-}
-.pokeStatInfoBar::after
-{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    height: 5px;
-    width: 45%;
-    background: #6ff5ff;
 }

@@ -1,0 +1,45 @@
+.pokeStatsInfoBox
+{}
+.pokeStatInfoBox
+{
+    font-size: 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.pokeStatInfoBox:not(:last-child)
+{
+    margin-bottom: 14px;
+}
+.pokeStatInfoLabel
+{
+    font-family: var(--pokemonType-font-family);
+    display: flex;
+    font-weight: 500;
+    flex: 1;
+    color: #444444;
+}
+.pokeStatInfoValue
+{
+    color: #303943;
+    font-family: var(--pokemonCard-font-family);
+}
+.pokeStatInfoBar
+{
+    align-self: center;
+    position: relative;
+    margin-left: 13px;
+    height: 5px;
+    width: 200px;
+    margin-right: 35px;
+    background: #e4e4e4;
+}
+.statValueFill
+{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: #6ff5ff;
+}

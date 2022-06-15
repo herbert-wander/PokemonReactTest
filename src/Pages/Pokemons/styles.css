@@ -71,3 +71,84 @@
     justify-content: flex-start;
     position: relative;
 }
+
+.pokeColorBackNormal
+{
+    background: var(--pokeColor-Normal);
+}
+.pokeColorBackFighting
+{
+    background: var(--pokeColor-Fighting);
+}
+.pokeColorBackFlying
+{
+    background: var(--pokeColor-Flying);
+}
+.pokeColorBackPoison
+{
+    background: var(--pokeColor-Poison);
+}
+.pokeColorBackGround
+{
+    background: var(--pokeColor-Ground);
+}
+.pokeColorBackRock
+{
+    background: var(--pokeColor-Rock);
+}
+.pokeColorBackBug
+{
+    background: var(--pokeColor-Bug);
+}
+.pokeColorBackGhost
+{
+    background: var(--pokeColor-Ghost);
+}
+.pokeColorBackSteel
+{
+    background: var(--pokeColor-Steel);
+}
+.pokeColorBackFire
+{
+    background: var(--pokeColor-Fire);
+}
+.pokeColorBackWater
+{
+    background: var(--pokeColor-Water);
+}
+.pokeColorBackGrass
+{
+    background: var(--pokeColor-Grass);
+}
+.pokeColorBackElectric
+{
+    background: var(--pokeColor-Electric);
+}
+.pokeColorBackPsychic
+{
+    background: var(--pokeColor-Psychic);
+}
+.pokeColorBackIce
+{
+    background: var(--pokeColor-Ice);
+}
+.pokeColorBackDragon
+{
+    background: var(--pokeColor-Dragon);
+}
+.pokeColorBackDark
+{
+    background: var(--pokeColor-Dark);
+}
+.pokeColorBackFairy
+{
+    background: var(--pokeColor-Fairy);
+}
+.pokeColorBackUnknown
+{
+    background: var(--pokeColor-Unknown);
+}
+.pokeColorBackShadow
+{
+    background: var(--pokeColor-Shadow);
+}
