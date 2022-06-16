@@ -1,11 +1,19 @@
 import './styles.css';
 import { useState } from 'react';
-import dropDownArrowSVG from '/src/images/dropDownArrow.svg'
+import { useEffect } from 'react';
+import dropDownArrowSVG from '/src/images/dropDownArrow.svg';
+import { useRef } from 'react';
 
-export function DropDownMenu({ options, menuLabel })
+export function DropDownMenu({ options, menuLabel, setAllPokemonListByType, searchHandle })
 {
     const [optBoxClassCycle, setOptBoxClassCycle] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState({});
+    const notInitialRender = useRef(false)
+
+    useEffect(() =>
+    {
+        setAllPokemonListByType(selectedOptions);
+    }, [selectedOptions]);
 
     function handleOptBoxView()
     {
@@ -39,12 +47,20 @@ export function DropDownMenu({ options, menuLabel })
     }
     function handleMenuSelection(element) 
     {
-        setSelectedOptions(prevState => prevState[element.value] = element.checked)
+        setSelectedOptions(prevState => 
+        {
+            if (element.checked) 
+            {
+                prevState[element.value] = null;
+            }
+            else
+            {
+                delete prevState[element.value];
+            }
+            return { ...prevState };
+        });
     }
-    function searchByType(params) 
-    {
-        //Reorganizar o fetch pra padronizar numa func só que seja de uma forma mais generalista    
-    }
+
     return (
         <div className="dropDownMenu">
             <span onClick={handleOptBoxView}>{menuLabel}<img src={dropDownArrowSVG} alt="" /></span>

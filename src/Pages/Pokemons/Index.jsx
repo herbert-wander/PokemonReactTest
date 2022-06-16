@@ -15,7 +15,8 @@ export function Pokemons()
     const [pokemonsTypes, setPokemonsTypes] = useState([]);
     const [showPokeDetails, setShowPokeDetails] = useState(false);
     const [pokemontDataPos, setPokemontDataPos] = useState(1);
-    const [allPokemonList, setAllPokemonList] = useState(1);
+    const [allPokemonList, setAllPokemonList] = useState();
+    const [allPokemonListByType, setAllPokemonListByType] = useState({});
     const [featuredPokemon, setFeaturedPokemon] = useState();
     const lastSearchPromise = useRef();
 
@@ -25,65 +26,95 @@ export function Pokemons()
         {
             for (let index = pokemontDataPos; index < pokemontDataPos + 15; index++) 
             {
-                var url = "https://pokeapi.co/api/v2/pokemon/" + index;
-                await fetch(url)
-                    .then(data => data.json())
-                    .then(data => 
-                    {
-                        setPokemonsList(prevState =>
-                        {
-                            prevState[data.id] = data;
-                            return { ...prevState };
-                        });
-                        setDefaultPokeList(prevState =>
-                        {
-                            prevState[data.id] = data;
-                            return { ...prevState };
-                        });
-                    });
+                let url = "https://pokeapi.co/api/v2/pokemon/" + index;
+                let data = await getData(url);
+                setPokemonsList(prevState =>
+                {
+                    prevState[data.id] = data;
+                    return { ...prevState };
+                });
+                setDefaultPokeList(prevState =>
+                {
+                    prevState[data.id] = data;
+                    return { ...prevState };
+                });
+
             }
 
         }
         async function getPokemonTypes()
         {
-            await fetch("https://pokeapi.co/api/v2/type/")
-                .then(data => data.json())
-                .then(data => 
-                {
-                    //console.log(data.results);
-                    setPokemonsTypes(data.results);
-                })
-                .catch(error => console.log("Error = " + error));
+            let data = await getData("https://pokeapi.co/api/v2/type/");
+            setPokemonsTypes(data.results);
         }
         async function getAllPokemons()
         {
-            await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1400")
-                .then(data => data.json())
-                .then(data => 
-                {
-                    setAllPokemonList(data.results);
-                })
-                .catch(error => console.log("Error = " + error));
+            let data = await getData("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1400")
+            setAllPokemonList(data.results);
         }
         getAllPokemons();
         getPokemonTypes();
         getPokemonData();
 
     }, []);
+
+    useEffect(() =>
+    {
+        searchHandle(document.getElementById("searchInput").value);
+    }, [allPokemonListByType]);
+
     async function searchHandle(searchTerm)
     {
-        var searchResult = {};
-        if (searchTerm != null && searchTerm != "") 
+        //3 tipos de chamada, pesquisa na barra, reset da barra e pesquisa de categoria
+        let searchResult = {};
+        if ((searchTerm != null && searchTerm != "") || Object.keys(allPokemonListByType).length > 0) 
         {
-            var verifyPromise = Promise.all(allPokemonList.map(async (value) =>
+            let verifyPromise;
+            let pokeData;
+            let pokemonListPool = [];
+            if (Object.keys(allPokemonListByType).length > 0) 
             {
-                if (value.name.includes(searchTerm.toLowerCase())) 
+                verifyPromise = Promise.all(Object.entries(allPokemonListByType).map(async ([key, value]) =>
                 {
-                    console.log(value.url);
-                    var pokeData = await getData(value.url);
+                    if (value == null) 
+                    {
+                        allPokemonListByType[key] = (await getData("https://pokeapi.co/api/v2/type/" + key)).pokemon;
+                    }
+                    else
+                    {
+                        console.log("Cached Already!");
+                    }
+                    pokemonListPool = [...allPokemonListByType[key], ...pokemonListPool];
+
+                }
+                ));
+                const response = await verifyPromise;
+            }
+            if (pokemonListPool == null) 
+            {
+                pokemonListPool = [...allPokemonList];
+            }
+            //console.log(pokemonListPool);
+            verifyPromise = Promise.all(pokemonListPool.map(async (value) =>
+            {
+                let name, url;
+                if (Object.hasOwn(value, "pokemon")) 
+                {
+                    name = value.pokemon.name;
+                    url = value.pokemon.url;
+                }
+                else
+                {
+                    name = value.name;
+                    url = value.url;
+                }
+                if (name.includes(searchTerm.toLowerCase())) 
+                {
+                    pokeData = await getData(url);
                     searchResult[pokeData.id] = pokeData;
                 }
             }));
+
             lastSearchPromise.current = verifyPromise;
             const response = await verifyPromise;
             if (lastSearchPromise.current == verifyPromise)
@@ -121,13 +152,13 @@ export function Pokemons()
             <section id="pokemonPage">
                 <h1 className="pokePageTitle">Mais de 900 Pokemons para você escolher o seu favorito</h1>
                 <div className="searchBar">
-                    <input type="text" placeholder="Pesquisar pokemon" onChange={e => searchHandle(e.target.value)} />
+                    <input id="searchInput" type="text" placeholder="Pesquisar pokemon" onChange={e => searchHandle(e.target.value)} />
                     <img src={lupaSVG} alt="Pesquisar" />
                 </div>
                 <div className="selectionMenuBox">
-                    <DropDownMenu key="typePokemonMenu" menuLabel="Tipo" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} />
-                    <DropDownMenu key="atackPokemonMenu" menuLabel="Ataque" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} />
-                    <DropDownMenu key="defensePokemonMenu" menuLabel="Defesa" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} />
+                    <DropDownMenu key="typePokemonMenu" menuLabel="Tipo" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} setAllPokemonListByType={setAllPokemonListByType} searchHandle={searchHandle} />
+                    <DropDownMenu key="atackPokemonMenu" menuLabel="Ataque" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} setAllPokemonListByType={setAllPokemonListByType} />
+                    <DropDownMenu key="defensePokemonMenu" menuLabel="Defesa" options={pokemonsTypes.length > 1 ? pokemonsTypes : [" --- "]} setAllPokemonListByType={setAllPokemonListByType} />
                 </div>
                 <div className="pokemonsListBox">
                     {
