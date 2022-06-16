@@ -5,6 +5,8 @@ import dropDownArrowSVG from '/src/images/dropDownArrow.svg'
 export function DropDownMenu({ options, menuLabel })
 {
     const [optBoxClassCycle, setOptBoxClassCycle] = useState(0);
+    const [selectedOptions, setSelectedOptions] = useState({});
+
     function handleOptBoxView()
     {
         setOptBoxClassCycle(prevState =>
@@ -35,11 +37,18 @@ export function DropDownMenu({ options, menuLabel })
             return restartClass;
         }
     }
-
+    function handleMenuSelection(element) 
+    {
+        setSelectedOptions(prevState => prevState[element.value] = element.checked)
+    }
+    function searchByType(params) 
+    {
+        //Reorganizar o fetch pra padronizar numa func só que seja de uma forma mais generalista    
+    }
     return (
         <div className="dropDownMenu">
             <span onClick={handleOptBoxView}>{menuLabel}<img src={dropDownArrowSVG} alt="" /></span>
-            <fieldset className={handleCssClassSwitch("", "showOptions", "removeOptions")}>
+            <fieldset className={handleCssClassSwitch("", "showOptions", "removeOptions")} onChange={e => handleMenuSelection(e.target)} >
                 {
                     options.length <= 1 ? <span>{options[0]}</span> : options.map(value =>
                         <div className="boxOptionDropMenu" key={menuLabel + value.name + "OptBox"}>

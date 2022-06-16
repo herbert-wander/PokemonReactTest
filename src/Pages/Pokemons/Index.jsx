@@ -94,6 +94,7 @@ export function Pokemons()
         }
         else
         {
+            lastSearchPromise.current = null;
             setPokemonsList(defaultPokeList);
         }
 
