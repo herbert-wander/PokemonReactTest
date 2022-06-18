@@ -1,0 +1,25 @@
+.pokeNotFound
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.pokeNotFound img
+{
+    border-radius: 30px;
+    width: 70%;
+    box-shadow: 0px 0px 16px rgba(0, 174, 255, 0.959);;
+}
+.pokeNotFound span
+{
+    margin: 0px 30px;
+    font-family: var(--pokemonPage-h1-font-family);
+    font-style: var(--pokemonPage-h1-font-style);
+    font-weight: var(--pokemonPage-h1-font-weight);
+    font-size: 18px;
+    line-height: var(--pokemonPage-h1-line-height);
+    text-align: var(--pokemonPage-h1-text-align);
+    margin-bottom: 20px;
+    
+}
