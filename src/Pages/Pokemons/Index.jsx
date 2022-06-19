@@ -55,10 +55,11 @@ export function Pokemons()
         {
             let data = await getData("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1400")
             setAllPokemonList(data.results);
+            setAllPokemonList(data.results, setIsDataFetched(true));
         }
         getAllPokemons();
         getPokemonTypes();
-        getPokemonData();
+        //getPokemonData();
 
     }, []);
 
@@ -72,11 +73,11 @@ export function Pokemons()
         //3 tipos de chamada, pesquisa na barra, reset da barra e pesquisa de categoria
         setPokemontDataPos(1);
         let searchResult = {};
+        let pokemonListPool = {};
+        let verifyPromise;
+        let pokeData;
         if ((searchTerm != null && searchTerm != "") || Object.keys(allPokemonListByType).length > 0) 
         {
-            let verifyPromise;
-            let pokeData;
-            let pokemonListPool = {};
             let pokeTypesPickCount = Object.keys(allPokemonListByType).length;
             if (pokeTypesPickCount > 0) 
             {
@@ -159,8 +160,29 @@ export function Pokemons()
         }
         else
         {
-            lastSearchPromise.current = null;
-            setPokemonsList(defaultPokeList);
+            //lastSearchPromise.current = null;
+            // Tem que criar uma função de pegar os dados pra generalizar as funções
+            if (isDataFetched) 
+            {
+                (allPokemonList.slice(0, 14)).map(value => pokemonListPool[value.name] = value);
+                verifyPromise = Promise.all(Object.entries(pokemonListPool).map(async ([key, value]) =>
+                {
+                    if (value.name.includes(searchTerm.toLowerCase())) 
+                    {
+                        pokeData = await getData(value.url);
+                        searchResult[pokeData.id] = pokeData;
+                    }
+                }));
+
+                lastSearchPromise.current = verifyPromise;;
+                const response = await verifyPromise;
+                if (lastSearchPromise.current == verifyPromise)
+                {
+                    setPokemonsList(searchResult);
+                }
+                console.log("Ta Aqui!");
+                setPokemontDataPos(1);
+            }
         }
 
     }
