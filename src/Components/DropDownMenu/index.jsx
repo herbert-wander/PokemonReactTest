@@ -4,15 +4,19 @@ import { useEffect } from 'react';
 import dropDownArrowSVG from '/src/images/dropDownArrow.svg';
 import { useRef } from 'react';
 
-export function DropDownMenu({ options, menuLabel, setAllPokemonListByType, searchHandle })
+export function DropDownMenu({ options, menuLabel, setAllPokemonListByType })
 {
     const [optBoxClassCycle, setOptBoxClassCycle] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState({});
-    const notInitialRender = useRef(false)
+    const [isFirstRender, setIsFirstRender] = useState(true);
 
     useEffect(() =>
     {
-        setAllPokemonListByType(selectedOptions);
+        if (!isFirstRender) 
+        {
+            setAllPokemonListByType(selectedOptions);
+        }
+        setIsFirstRender(false);
     }, [selectedOptions]);
 
     function handleOptBoxView()
