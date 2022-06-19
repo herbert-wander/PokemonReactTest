@@ -1,7 +1,7 @@
 import './styles.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import pokeNotFoundPNG from '/src/images/pokeNotFound.png'
+import pokeNotFoundPNG from '/src/images/pokeNotFound.png';
 
 export function PokeNotFound()
 {

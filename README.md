@@ -16,7 +16,7 @@ _________________
 
 _________________
 ### :diamond_shape_with_a_dot_inside: About
-This is my first project using React and thefore it may be expected that some errors and some not "good pratice" code may be found, if you do found it feel free to create a issue pointing that and i will try to fix it.<br>
+This is my first project using React and thefore you may expect that some errors and some not "good pratice" code may be found, if you do found it feel free to create a issue pointing that and i will try to fix it.<br>
 This is a simple project that uses React to create 2 pages where one of them consumes an API([PokeApi](https://pokeapi.co/)) to generate content in realtime.<br>
 
 :bookmark: **Main Branch**: Stable production Branch that is auto deployed to online version.<br>
@@ -26,7 +26,7 @@ This is a simple project that uses React to create 2 pages where one of them con
 _________________
 ### :diamond_shape_with_a_dot_inside: Status
 Use current status and table below to know in wich situation this project is.<br>
-:loudspeaker: **<font color="red">Current Status =></font>** Focus<br>
+:loudspeaker: **<font color="red">Current Status =></font>** **Focus**<br>
 :loudspeaker: **Reason:** This is project will be expanded and be worked on for sometime while i pratice and learn React.<br>
 <div align="center">
 
@@ -49,19 +49,20 @@ _________________
 ### :diamond_shape_with_a_dot_inside: Features
 All features are described here, if you dont find what you are looking for here, there is a 99% chance that this project dont have it, the 1% refers to things that may be in [To Do List](#diamond_shape_with_a_dot_inside-To-Do-List) or [Working On](#diamond_shape_with_a_dot_inside-Working-On).
 #### &emsp; :bookmark: Pokemon Search
-&emsp;&emsp;&emsp;:white_check_mark: Pokemon Search: You can use the pokemon page to search by any pokemon.<br>
+&emsp;&emsp;&emsp;:white_check_mark: Pokemon Search: You can use the pokemon page to search by any pokemon by name.<br>
+&emsp;&emsp;&emsp;:white_check_mark: Pokemon Search  Type Category: You can use the pokemon page to search by type categories<br>
 &emsp;&emsp;&emsp;:white_check_mark: Pokemon Details: You can click on a pokemon card and get some detailed info about it.
 
 _________________
 ### :diamond_shape_with_a_dot_inside: To Do List
 :black_square_button: Pagination using React Router<br>
-:black_square_button: Working DropDownMenu<br>
 :black_square_button: Better css variable usage<br>
 :black_square_button: Fetch data using Axios Library<br>
 :black_square_button: Responsive Layout<br>
 _________________
 ### :diamond_shape_with_a_dot_inside: Working on
-:construction: Code Review
+:construction: Code Review<br>
+:construction: Working DropDownMenu<br>
 _________________
 ### :diamond_shape_with_a_dot_inside: F.A.Q.
 #### &emsp;:bookmark: General

@@ -2,6 +2,8 @@ import './styles.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { PokeStatInfoBox } from "../PokeStatInfoBox";
+import pesoSVG from "/src/images/peso.svg";
+import reguaSVG from "/src/images/regua.svg";
 
 export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
 {
@@ -56,14 +58,14 @@ export function PokemonDetailsCard({ pokeData, setShowPokeDetails })
                         <p className="pokeInfoDesc">{pokeDesc}</p>
                         <div className="pokeBaseInfosBox">
                             <div className="pokeBaseinfoBox">
-                                <img src="/src/images/peso.svg" alt="" />
+                                <img src={pesoSVG} alt="" />
                                 <div className="pokeBaseinfoDetail">
                                     <span className="pokeBaseInfoTitle">{(pokeData.weight * 100) / 1000} kg</span>
                                     <span className="pokeInfoSmallDetail">peso</span>
                                 </div>
                             </div>
                             <div className="pokeBaseinfoBox">
-                                <img src="/src/images/regua.svg" alt="" />
+                                <img src={reguaSVG} alt="" />
                                 <div className="pokeBaseinfoDetail">
                                     <span className="pokeBaseInfoTitle">{(pokeData.height * 10) / 100} m</span>
                                     <span className="pokeInfoSmallDetail">altura</span>

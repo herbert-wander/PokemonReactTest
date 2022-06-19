@@ -6,8 +6,8 @@ import { PokemonDetailsCard } from '../../Components/PokemonDetailsCard';
 import { DropDownMenu } from "../../Components/DropDownMenu";
 import { PokeNotFound } from "../../Components/PokeNotFound";
 import { useEffect } from 'react';
-import lupaSVG from '/src/images/lupa.svg'
-import { useRef } from 'react'
+import lupaSVG from '/src/images/lupa.svg';
+import { useRef } from 'react';
 import { ContentNavigator } from "../../Components/ContentNavigator";
 
 export function Pokemons()
