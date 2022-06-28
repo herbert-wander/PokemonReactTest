@@ -1,6 +1,5 @@
 import './styles.css';
 import { useState } from 'react';
-import { Header } from '../../Components/Header';
 import { PokemonSmallCard } from '../../Components/PokemonSmallCard';
 import { PokemonDetailsCard } from '../../Components/PokemonDetailsCard';
 import { DropDownMenu } from "../../Components/DropDownMenu";
@@ -19,7 +18,6 @@ export function Pokemons()
     const [showPokeDetails, setShowPokeDetails] = useState(false);
     const [pokemonsList, setPokemonsList] = useState([]);
     const [isDataFetched, setIsDataFetched] = useState(false);
-
     const [pokemonPoolList, setPokemonPoolList] = useState();
     const [pokemonDataPos, setPokemonDataPos] = useState(1);
     const lastSearchPromise = useRef(0);
@@ -73,7 +71,6 @@ export function Pokemons()
         {
             getPokemonData();
         }
-
     }, [pokemonDataPos]);
 
     useEffect(() =>
@@ -90,7 +87,7 @@ export function Pokemons()
         //3 tipos de chamada, pesquisa na barra, reset da barra e pesquisa de categoria
         setPokemonDataPos(1);
         let pokeListSearchPool = [];
-        let verifyPromise;
+
 
         if ((searchTerm != null && searchTerm != "") || Object.keys(allPokemonListByType).length > 0) 
         {
@@ -104,6 +101,7 @@ export function Pokemons()
                 }
                 else
                 {
+                    let verifyPromise;
                     verifyPromise = Promise.all(Object.entries(allPokemonListByType).map(async ([key, value]) =>
                     {
 
@@ -197,6 +195,8 @@ export function Pokemons()
     }
     async function getPokemonData()
     {
+        //console.log(await getData("https://pokeapi.co/api/v2/move/48/"));
+
         lastSearchPromise.current = lastSearchPromise.current + 1;
         let verify = lastSearchPromise.current;
 

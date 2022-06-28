@@ -1,8 +1,7 @@
 import { Home } from './Pages/Home';
 import { Pokemons } from "./Pages/Pokemons/Index";
 import { Header } from "./Components/Header";
-import { useRef, useState } from 'react';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import "./styles/global.css"
 import "./styles/variables.css"
 
@@ -19,7 +18,7 @@ export function App()
         }
         else if (pageState == 2)
         {
-            return <Pokemons />;
+            return <Pokemons pageSelected={pageState} />;
         }
         else
         {
@@ -32,7 +31,7 @@ export function App()
     }
     return (
         <div>
-            <Header setPageNavigation={setPageNavigation} />
+            <Header setPageNavigation={setPageNavigation} pageSelected={pageState} />
             {
                 navigationHandle()
             }

@@ -9,7 +9,8 @@ export function PokemonSmallCard({ pokemonId, pokemonName, pokemonTypes, image, 
     function formatId()
     {
         var formatedId = pokemonId;
-        for (let index = 0; index < 3 - pokemonId.length; index++) 
+        console.log();
+        for (let index = 0; index < 3 - pokemonId.toString().length; index++) 
         {
             formatedId = "0" + formatedId;
         }

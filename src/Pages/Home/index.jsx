@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
 import './styles.css';
 import bannerSVG from '/src/images/banner.svg';
-import { Header } from '../../Components/Header';
 
 export function Home({ setPageNavigation })
 {
